@@ -21,6 +21,6 @@ export class User {
   })
   email: string;
 
-  @OneToMany(() => Colonne, (colonne) => colonne.userID, {nullable: false}) 
+  @OneToMany(() => Colonne, (colonne) => colonne.user, {nullable: false}) 
   colonne : Colonne
 }

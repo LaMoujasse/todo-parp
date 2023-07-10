@@ -18,8 +18,8 @@ export class Card {
     description: string;
 
     @ManyToOne(() => Colonne, (colonne) => colonne.id, {nullable: false})
-    colonneID : Colonne
+    colonne : Colonne
 
-    @OneToMany(() => List, (list) => list.cardID, {nullable: false})
-    cardID : List
+    @OneToMany(() => List, (list) => list.card, {nullable: false})
+    card : List
 }

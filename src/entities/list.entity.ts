@@ -13,8 +13,8 @@ export class List {
     title: string;
 
     @ManyToOne(() => Card, (card) => card.id, {nullable: false})
-    cardID : Card
+    card : Card
 
-    @OneToMany(() => Item, (item) => item.listID, {nullable: false} )
-    itemID : Item
+    @OneToMany(() => Item, (item) => item.list, {nullable: false} )
+    item : Item
 }

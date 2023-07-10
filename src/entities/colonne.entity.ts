@@ -13,8 +13,8 @@ export class Colonne {
     title: string;
 
     @ManyToOne(() => User, (user) => user.id, {nullable: false})
-    userID : User
+    user : User
 
-    @OneToMany(() => Card, (card) => card.colonneID, {nullable: false}) 
-    cardID : Card
+    @OneToMany(() => Card, (card) => card.colonne, {nullable: false}) 
+    card : Card
 }
