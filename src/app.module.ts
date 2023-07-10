@@ -10,11 +10,17 @@ import { Colonne } from './entities/colonne.entity';
 import { Card } from './entities/card.entity';
 import { List } from './entities/list.entity';
 import { Item } from './entities/item.entity';
+import { CardModule } from './api/card/card.module';
+import { ListModule } from './api/list/list.module';
+import { ItemModule } from './api/item/item.module';
 
 @Module({
   imports: [
     UsersModule,
     ColonneModule,
+    CardModule,
+    ListModule,
+    ItemModule,
     TypeOrmModule.forRoot({
     type: 'mysql',
     host: 'localhost',

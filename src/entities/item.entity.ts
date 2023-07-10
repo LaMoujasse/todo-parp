@@ -17,5 +17,5 @@ export class Item {
     finish: boolean;
 
     @ManyToOne(() => List, (list) => list.id, {nullable: false})
-    list : List
+    list : List;
 }
