@@ -1,9 +1,9 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany } from 'typeorm';
-import { User } from './user.entity';
 import { Card } from './card.entity';
+import { Item } from './item.entity';
 
 @Entity()
-export class Colonne {
+export class List {
     @PrimaryGeneratedColumn()
     id: number;
 
@@ -12,9 +12,9 @@ export class Colonne {
     })
     title: string;
 
-    @ManyToOne(() => User, (user) => user.id, {nullable: false})
-    userID : User
-
-    @OneToMany(() => Card, (card) => card.colonneID, {nullable: false}) 
+    @ManyToOne(() => Card, (card) => card.id, {nullable: false})
     cardID : Card
+
+    @OneToMany(() => Item, (item) => item.listID, {nullable: false} )
+    itemID : Item
 }

@@ -7,6 +7,9 @@ import { User } from './entities/user.entity';
 import { UsersModule } from './api/user/user.module';
 import { ColonneModule } from './api/colonne/colonne.module';
 import { Colonne } from './entities/colonne.entity';
+import { Card } from './entities/card.entity';
+import { List } from './entities/list.entity';
+import { Item } from './entities/item.entity';
 
 @Module({
   imports: [
@@ -19,7 +22,7 @@ import { Colonne } from './entities/colonne.entity';
     username: 'root',
     password: 'root',
     database: 'todo-parp',
-    entities: [User, Colonne],
+    entities: [User, Colonne, Card, List, Item], 
     synchronize: true,
     }),
   ],
