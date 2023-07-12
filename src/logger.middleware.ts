@@ -10,6 +10,7 @@ export class LoggerMiddleware implements NestMiddleware {
   }
 }
 
-export function Test(req: Request, res: Response, next: NextFunction) {
+export function test(req: Request, res: Response, next: NextFunction) {
   res.send('Cc MoujLeBGEtMecheuxDu44');
+  //next();
 }

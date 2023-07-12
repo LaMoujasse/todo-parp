@@ -1,4 +1,4 @@
-import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule, RequestMethod } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -13,7 +13,7 @@ import { Item } from './entities/item.entity';
 import { CardModule } from './api/card/card.module';
 import { ListModule } from './api/list/list.module';
 import { ItemModule } from './api/item/item.module';
-import { LoggerMiddleware, Test } from './logger.middleware';
+import { LoggerMiddleware, test } from './logger.middleware';
 
 @Module({
   imports: [
@@ -39,7 +39,8 @@ import { LoggerMiddleware, Test } from './logger.middleware';
 export class AppModule implements NestModule{
   configure(consumer: MiddlewareConsumer) {
     consumer
-      .apply(LoggerMiddleware, Test)
+      .apply(LoggerMiddleware)
+      //.exclude({path: 'user', method:RequestMethod.GET})
       .forRoutes('*')
   }
   constructor(private dataSource: DataSource) {}
