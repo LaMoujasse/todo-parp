@@ -21,4 +21,8 @@ export class ColonneService {
   async remove(id: number): Promise<void> {
     await this.colonneRepository.delete(id);
   }
+
+  async createOne(body) {
+    return await this.colonneRepository.save(body);
+  }
 }

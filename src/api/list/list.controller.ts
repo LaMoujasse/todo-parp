@@ -17,4 +17,11 @@ export class ListController {
   ): Promise<List> {
     return this.ListService.findOne(id);
   }
+
+  @Post()
+  async createOne(
+    @Body() body
+  ){
+    return await this.ListService.createOne(body);
+  }
 }

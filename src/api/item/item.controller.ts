@@ -17,4 +17,11 @@ export class ItemController {
   ): Promise<Item> {
     return this.itemService.findOne(id);
   }
+
+  @Post()
+  async createOne(
+    @Body() body
+  ){
+    return await this.itemService.createOne(body)
+  }
 }

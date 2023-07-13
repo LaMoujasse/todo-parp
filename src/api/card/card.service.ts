@@ -21,4 +21,8 @@ export class CardService {
   async remove(id: number): Promise<void> {
     await this.cardRepository.delete(id);
   }
+
+  async createOne(body) {
+    return await this.cardRepository.save(body);
+  }
 }

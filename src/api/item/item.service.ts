@@ -21,4 +21,8 @@ export class ItemService {
   async remove(id: number): Promise<void> {
     await this.itemRepository.delete(id);
   }
+
+  async createOne(body) {
+    return await this.itemRepository.save(body);
+  }
 }

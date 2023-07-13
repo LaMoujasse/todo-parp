@@ -21,4 +21,8 @@ export class ListService {
   async remove(id: number): Promise<void> {
     await this.listRepository.delete(id);
   }
+
+  async createOne(body) {
+    return await this.listRepository.save(body);
+  }
 }

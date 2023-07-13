@@ -17,4 +17,11 @@ export class ColonneController {
   ): Promise<Colonne> {
     return this.colonneService.findOne(id);
   }
+
+  @Post()
+  async createOne(
+    @Body() body 
+    ){
+      return await this.colonneService.createOne(body);
+    }
 }

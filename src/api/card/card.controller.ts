@@ -17,4 +17,11 @@ export class CardController {
   ): Promise<Card> {
     return this.cardService.findOne(id);
   }
+
+  @Post()
+  async createOne(
+    @Body() body
+  ){
+    return this.cardService.createOne(body);
+  }
 }
