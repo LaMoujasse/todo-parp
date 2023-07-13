@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { UserService } from './user.service';
 import { User } from 'src/entities/user.entity';
 
@@ -16,6 +16,13 @@ export class UserController {
     @Param('id') id
   ): Promise<User> {
     return this.userService.findOne(id);
+  }
+
+  @Delete(':id')
+  async remove(
+    @Param('id') id
+  ){
+    return await this.userService.remove(id);
   }
 
   @Post()
