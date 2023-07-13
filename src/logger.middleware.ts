@@ -9,8 +9,3 @@ export class LoggerMiddleware implements NestMiddleware {
     next();
   }
 }
-
-export function test(req: Request, res: Response, next: NextFunction) {
-  res.send('Cc MoujLeBGEtMecheuxDu44');
-  //next();
-}

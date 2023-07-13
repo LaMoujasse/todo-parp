@@ -13,7 +13,7 @@ import { Item } from './entities/item.entity';
 import { CardModule } from './api/card/card.module';
 import { ListModule } from './api/list/list.module';
 import { ItemModule } from './api/item/item.module';
-import { LoggerMiddleware, test } from './logger.middleware';
+import { LoggerMiddleware } from './logger.middleware';
 
 @Module({
   imports: [
