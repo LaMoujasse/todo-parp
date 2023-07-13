@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpCode, Param, Post } from '@nestjs/common';
 import { UserService } from './user.service';
 import { User } from 'src/entities/user.entity';
 
@@ -18,6 +18,8 @@ export class UserController {
     return this.userService.findOne(id);
   }
 
+  //En vrai l'utilité de delete un user ? 
+  //Sauf si je peux delete en cascade et tout ce qui lui est lié du coup 
   @Delete(':id')
   async remove(
     @Param('id') id

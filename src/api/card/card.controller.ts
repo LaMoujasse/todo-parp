@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { CardService } from './card.service';
 import { Card } from 'src/entities/card.entity';
 
@@ -23,5 +23,12 @@ export class CardController {
     @Body() body
   ){
     return this.cardService.createOne(body);
+  }
+
+  @Delete(':id')
+  async remove(
+    @Param('id') id
+  ){
+    return this.cardService.remove(id);
   }
 }
