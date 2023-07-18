@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { ListService } from './list.service';
 import { List } from 'src/entities/list.entity';
 
@@ -23,5 +23,12 @@ export class ListController {
     @Body() body
   ){
     return await this.ListService.createOne(body);
+  }
+
+  @Delete(':id')
+  async remove(
+    @Param('id') id
+  ){
+    return await this.ListService.remove(id);
   }
 }

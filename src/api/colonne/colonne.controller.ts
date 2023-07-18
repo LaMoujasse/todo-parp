@@ -29,6 +29,6 @@ export class ColonneController {
   async remove(
     @Param('id') id
   ){
-    return this.colonneService.remove(id);
+    return await this.colonneService.remove(id);
   }
 }
