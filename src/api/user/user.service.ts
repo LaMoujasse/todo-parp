@@ -22,7 +22,7 @@ export class UserService {
     await this.userRepository.delete(id);
   }
 
-  async createOne(body): Promise<User|User> {
+  async createOne(body): Promise<User> {
     return await this.userRepository.save(body);
   }
 }
