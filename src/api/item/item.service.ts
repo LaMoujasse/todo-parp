@@ -22,7 +22,7 @@ export class ItemService {
     await this.itemRepository.delete(id);
   }
 
-  async createOne(body) {
+  async createOne(body): Promise<Item|Item> {
     return await this.itemRepository.save(body);
   }
 }

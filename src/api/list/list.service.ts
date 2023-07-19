@@ -22,7 +22,7 @@ export class ListService {
     await this.listRepository.delete(id);
   }
 
-  async createOne(body) {
+  async createOne(body): Promise<List|List> {
     return await this.listRepository.save(body);
   }
 }

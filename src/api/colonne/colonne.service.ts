@@ -22,7 +22,7 @@ export class ColonneService {
     await this.colonneRepository.delete(id);
   }
 
-  async createOne(body) {
+  async createOne(body): Promise<Colonne|Colonne> {
     return await this.colonneRepository.save(body);
   }
 }
