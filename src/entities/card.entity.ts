@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany, CreateDateColumn, UpdateDateColumn } from 'typeorm';
 import { Colonne } from './colonne.entity';
 import { List } from './list.entity';
 
@@ -6,6 +6,12 @@ import { List } from './list.entity';
 export class Card {
     @PrimaryGeneratedColumn()
     id: number;
+
+    @CreateDateColumn()
+    creationDate: Date;
+
+    @UpdateDateColumn()
+    upateDate: Date;
 
     @Column({
         nullable: false

@@ -6,16 +6,16 @@ export class User {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({
-    nullable : false
-  })
-  username: string;
-
   @CreateDateColumn()
   creationDate: Date;
 
   @UpdateDateColumn()
-  updateDate: Date;
+  upateDate: Date;
+
+  @Column({
+    nullable : false
+  })
+  username: string;
 
   @Column({
     nullable : false
