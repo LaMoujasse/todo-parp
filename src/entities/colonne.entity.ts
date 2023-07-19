@@ -16,5 +16,5 @@ export class Colonne {
     user : User;
 
     @OneToMany(() => Card, (card) => card.colonne, {nullable: false}) 
-    card : Card;
+    cards : Card[];
 }

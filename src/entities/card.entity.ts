@@ -21,5 +21,5 @@ export class Card {
     colonne : Colonne;
 
     @OneToMany(() => List, (list) => list.card, {nullable: false})
-    card : List;
+    lists : List[];
 }

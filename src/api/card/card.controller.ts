@@ -1,6 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { CardService } from './card.service';
 import { Card } from 'src/entities/card.entity';
+import { CreateCardDto } from './dto/create-card.dto';
 
 @Controller('card')
 export class CardController {
@@ -20,9 +21,12 @@ export class CardController {
 
   @Post()
   async createOne(
-    @Body() body
+    @Body() body: CreateCardDto
   ){
-    return this.cardService.createOne(body);
+    const newCard = new Card()
+    newCard.description = body.description;
+    newCard.title = body.title;
+    return this.cardService.createOne(newCard);
   }
 
   @Delete(':id')

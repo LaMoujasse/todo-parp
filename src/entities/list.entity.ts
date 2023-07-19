@@ -16,5 +16,5 @@ export class List {
     card : Card;
 
     @OneToMany(() => Item, (item) => item.list, {nullable: false} )
-    item : Item;
+    items : Item[];
 }

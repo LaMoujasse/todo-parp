@@ -22,7 +22,7 @@ export class CardService {
     await this.cardRepository.delete(id);
   }
 
-  async createOne(body): Promise<Card|Card> {
-    return await this.cardRepository.save(body);
+  async createOne(card: Card): Promise<Card|Card> {
+    return await this.cardRepository.save(card);
   }
 }
