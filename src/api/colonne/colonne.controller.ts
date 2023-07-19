@@ -11,8 +11,6 @@ export class ColonneController {
   @Get()
   async getAll(): Promise<Colonne[]> {
     const colonnes = await this.colonneService.find();
-
-    console.log(colonnes[0].constructor.name)
     return colonnes
   }
 
