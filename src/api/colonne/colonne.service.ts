@@ -10,7 +10,7 @@ export class ColonneService {
     private colonneRepository: Repository<Colonne>,
   ) {}
 
-  findAll(): Promise<Colonne[]> {
+  find(): Promise<Colonne[]> {
     return this.colonneRepository.find();
   }
 

@@ -1,14 +1,18 @@
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import { Body, ClassSerializerInterceptor, Controller, Delete, Get, Param, Post, UseInterceptors } from '@nestjs/common';
 import { ColonneService } from './colonne.service';
 import { Colonne } from 'src/entities/colonne.entity';
 
+@UseInterceptors(ClassSerializerInterceptor)
 @Controller('colonne')
 export class ColonneController {
   constructor(private readonly colonneService: ColonneService) {}
 
   @Get()
   async getAll(): Promise<Colonne[]> {
-    return this.colonneService.findAll();
+    const colonnes = await this.colonneService.find();
+
+    console.log(colonnes.constructor.name)
+    return colonnes
   }
 
   @Get(':id')

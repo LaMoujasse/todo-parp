@@ -1,13 +1,22 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany, CreateDateColumn, UpdateDateColumn, Generated } from 'typeorm';
 import { User } from './user.entity';
 import { Card } from './card.entity';
+import { Exclude } from 'class-transformer';
 
 @Entity()
 export class Colonne {
     @PrimaryGeneratedColumn()
+    @Exclude()
     id: number;
 
+    @Column({
+        nullable: false
+    })
+    @Generated('uuid')
+    uuid: string;
+
     @CreateDateColumn()
+    @Exclude()
     creationDate: Date;
 
     @UpdateDateColumn()
