@@ -4,7 +4,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DataSource } from 'typeorm';
 import { User } from './entities/user.entity';
-import { UsersModule } from './api/user/user.module';
+import { UserModule } from './api/user/user.module';
 import { ColonneModule } from './api/colonne/colonne.module';
 import { Colonne } from './entities/colonne.entity';
 import { Card } from './entities/card.entity';
@@ -17,7 +17,7 @@ import { LoggerMiddleware } from './utils/middleware/logger.middleware';
 
 @Module({
   imports: [
-    UsersModule,
+    UserModule,
     ColonneModule,
     CardModule,
     ListModule,
