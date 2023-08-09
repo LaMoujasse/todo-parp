@@ -22,13 +22,20 @@ export class UserService {
     await this.userRepository.delete(id);
   }
 
-  async createOne(body): Promise<User> {
+  async createOne(body:any): Promise<User> {
     return await this.userRepository.save(body);
   }
 
-  async update(id, body): Promise<any> {
-    return await this.userRepository.update(id ,body);
+  async updateUsername(id:number, body:any): Promise<void> {
+    await this.userRepository.update(id ,body);
   }
 
+  async updateEmail(id:number, body:any): Promise<void> {
+    await this.userRepository.update(id ,body);
+  }
+
+  async updatePassword(id:number, body:any): Promise<void> {
+    await this.userRepository.update(id ,body);
+  }
 
 }

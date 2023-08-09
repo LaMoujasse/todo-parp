@@ -1,7 +1,10 @@
-import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { UserService } from './user.service';
 import { User } from 'src/entities/user.entity';
 import { CreateUserDto } from './dto/create-user.dto';
+import { UpdateUsernameDto } from './dto/update-user-username.dto';
+import { UpdateUserEmailDto } from './dto/update-user-email.dto';
+import { UpdateUserPasswordDto } from './dto/update-user-password.dto';
 
 @Controller('user')
 export class UserController {
@@ -20,6 +23,12 @@ export class UserController {
     return this.userService.findOne(id);
   }
 
+  @Delete(':id')
+  async remove(
+    @Param('id') id
+  ): Promise<void> {
+    return this.userService.remove(id)
+  }
 
   @Post()
   async createOne(
@@ -29,10 +38,27 @@ export class UserController {
   }
 
   @Put(':id')
-  async update(
+  async updateUsername(
     @Param('id') id: number,
-    @Body() body: any
+    @Body() body: UpdateUsernameDto
   ){
-    return await this.userService.update(id,body);
+    return await this.userService.updateUsername(id,body);
   }
+
+  @Put(':id')
+  async updateEmail(
+    @Param('id') id: number,
+    @Body() body: UpdateUserEmailDto
+  ){
+    return await this.userService.updateEmail(id,body);
+  }
+
+  @Put(':id')
+  async updatePassword(
+    @Param('id') id: number,
+    @Body() body: UpdateUserPasswordDto
+  ){
+    return await this.userService.updatePassword(id,body);
+  }
+  
 }
