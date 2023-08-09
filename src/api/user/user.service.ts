@@ -25,4 +25,10 @@ export class UserService {
   async createOne(body): Promise<User> {
     return await this.userRepository.save(body);
   }
+
+  async update(id, body): Promise<any> {
+    return await this.userRepository.update(id ,body);
+  }
+
+
 }
