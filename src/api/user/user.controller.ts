@@ -37,27 +37,27 @@ export class UserController {
     return await this.userService.createOne(body)
   }
 
-  @Put(':id')
+  @Put('username/:id')
   async updateUsername(
     @Param('id') id: number,
     @Body() body: UpdateUsernameDto
-  ){
+  ): Promise<any> {
     return await this.userService.updateUsername(id,body);
   }
 
-  @Put(':id')
+  @Put('email/:id')
   async updateEmail(
     @Param('id') id: number,
     @Body() body: UpdateUserEmailDto
-  ){
+  ): Promise<any> {
     return await this.userService.updateEmail(id,body);
   }
 
-  @Put(':id')
+  @Put('password/:id')
   async updatePassword(
     @Param('id') id: number,
     @Body() body: UpdateUserPasswordDto
-  ){
+  ): Promise<any> {
     return await this.userService.updatePassword(id,body);
   }
   
