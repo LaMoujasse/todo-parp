@@ -26,15 +26,7 @@ export class UserService {
     return await this.userRepository.save(body);
   }
 
-  async updateUsername(id:number, body:any): Promise<void> {
-    await this.userRepository.update(id ,body);
-  }
-
-  async updateEmail(id:number, body:any): Promise<void> {
-    await this.userRepository.update(id ,body);
-  }
-
-  async updatePassword(id:number, body:any): Promise<void> {
+  async updateUser(id:number, body:any): Promise<void> {
     await this.userRepository.update(id ,body);
   }
 
