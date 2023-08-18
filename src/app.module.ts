@@ -14,6 +14,7 @@ import { CardModule } from './api/card/card.module';
 import { ListModule } from './api/list/list.module';
 import { ItemModule } from './api/item/item.module';
 import { LoggerMiddleware } from './utils/middleware/logger.middleware';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -32,6 +33,7 @@ import { LoggerMiddleware } from './utils/middleware/logger.middleware';
     entities: [User, Colonne, Card, List, Item], 
     synchronize: true,
     }),
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

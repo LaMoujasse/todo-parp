@@ -3,6 +3,8 @@ import { User } from '../../entities/user.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { FindOneOptions, Repository } from 'typeorm';
 
+export type UserAuth = any;
+
 @Injectable()
 export class UserService {
   constructor(

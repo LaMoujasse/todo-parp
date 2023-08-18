@@ -6,7 +6,6 @@ import { Exclude } from 'class-transformer';
 @Entity()
 export class Colonne {
     @PrimaryGeneratedColumn()
-    @Exclude()
     id: number;
 
     @Column({
