@@ -19,6 +19,7 @@ export class User {
   username: string;
 
   @Exclude()
+  @Column()
   password: string;
 
   @Column({

@@ -16,8 +16,14 @@ export class UserController {
   async getOne(
     @Param('id') id
   ): Promise<User> {
-    console.log('Yoo')
-    return this.userService.findOne(id);
+    return this.userService.findOneID(id);
+  }
+
+  @Get(':username')
+  async getUser(
+    @Param('username') username
+  ): Promise<User> {
+    return this.userService.findOneUser(username);
   }
 
   @Delete(':id')
