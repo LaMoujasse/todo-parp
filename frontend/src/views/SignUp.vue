@@ -1,7 +1,8 @@
 <template>
   <div class="global">
+    <p class="missing"> {{ messageError }}</p>
     <div class="form-wrapper">
-      <form id="signup-user" @submit.prevent="SignupUser">
+      <form id="signup-user">
         <div class="email">
           <label for="email"> Adresse mail </label>
           <input type="text" id="email" v-model="email"  class="form-email" placeholder="Adresse mail">
@@ -15,7 +16,7 @@
           <input type="text" id="password" v-model="password"  class="form-password" placeholder="Mot de passe">
         </div>
         <div class="button-signup">
-          <button type="submit" class="btn-signup"> S'inscrire </button>
+          <button type="button" class="btn-signup" @click="SignupUser"> S'inscrire </button>
         </div>
       </form>
     </div>
@@ -35,6 +36,7 @@ import {useVuelidate} from '@vuelidate/core'
     },
     userData() {
       return {
+        messageError  : '',
         email    : '',
         username : '',
         password : ''
@@ -47,6 +49,13 @@ import {useVuelidate} from '@vuelidate/core'
         password : {required}
       }
     },
+    // computed: {
+    //   Check() {
+    //     return (
+    //       !this.username && !this.password && !this.email 
+    //     )
+    //   }
+    // },
     methods: {
       async SignupUser() {
         try {
@@ -61,9 +70,17 @@ import {useVuelidate} from '@vuelidate/core'
           }
         }
         catch(error) {
-          console.error('Erreur lors de l\'inscription', error);
+          if (!this.email || !this.password || !this.username){
+            console.error('Vous devez remplir tous les champs', error);
+            alert('Vous devez remplir tous les champs du formulaire');
+          }
+          if (!this.v$.email){
+            console.error('Format d\'email incorrect',error)
+            alert('Le format d\'email est incorrect')
+          }
+          // console.error('Erreur lors de l\'inscription', error);
         }
-      }
+      },
     }
   }
 </script>

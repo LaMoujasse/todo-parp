@@ -11,10 +11,10 @@
           <input type="text" id="password" v-model="password"  class="form-password" placeholder="Mot de passe">
         </div>
         <div class="button-login">
-          <button type="submit" class="btn-login" @click="LogUser"> S'identifier </button>
+          <button type="button" class="btn-login" @click="LogUser"> S'identifier </button>
         </div>
         <div class="button-signup">
-          <button type="submit" class="btn-signup" @click="Signup"> S'inscrire </button>
+          <button type="button" class="btn-signup" @click="Signup"> S'inscrire </button>
         </div>
       </form>
     </div>
@@ -51,8 +51,8 @@ export default{
       }
     },
 
-    async Signup() {
-      await router.push('/signup'); 
+    Signup() {
+      router.push('/signup'); 
     }
   }
 };
