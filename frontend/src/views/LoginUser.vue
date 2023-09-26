@@ -1,4 +1,9 @@
 <template>
+  <!-- <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8"> -->
+    <title>Connexion</title>
+  <!-- </head> -->
   <div class="global">
     <div class="form-wrapper">
       <form id="login-user">
@@ -101,7 +106,7 @@ export default{
 
 /* Style du bouton de connexion */
 .btn-login {
-  background-color: #007BFF;
+  background-color: #42b983;
   color: #fff;
   border: none;
   padding: 10px 15px;
@@ -111,7 +116,7 @@ export default{
 }
 
 .btn-signup {
-  background-color: #007BFF;
+  background-color: #42b983;
   color: #fff;
   border: none;
   padding: 10px 15px;
@@ -125,7 +130,7 @@ export default{
 /* Style au survol du bouton */
 .btn-login:hover,
 .btn-signup:hover {
-  background-color: #0056b3;
+  background-color: #339468;
 }
 
 /* Style pour centrer le bouton */

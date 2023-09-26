@@ -1,4 +1,9 @@
 <template>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>Inscription</title>
+  </head>
   <div class="global">
     <p class="missing"> {{ messageError }}</p>
     <div class="form-wrapper">
@@ -49,34 +54,32 @@ import {useVuelidate} from '@vuelidate/core'
         password : {required}
       }
     },
-    // computed: {
-    //   Check() {
-    //     return (
-    //       !this.username && !this.password && !this.email 
-    //     )
-    //   }
-    // },
     methods: {
       async SignupUser() {
+        
         try {
           const response = await axios.post(`${server.baseURL}/user`, {
             email: this.email,
             username: this.username,
             password: this.password
           });
-
           if (response.status === 201) {
             router.push('/connection')
           }
         }
+
         catch(error) {
-          if (!this.email || !this.password || !this.username){
-            console.error('Vous devez remplir tous les champs', error);
-            alert('Vous devez remplir tous les champs du formulaire');
-          }
-          if (!this.v$.email){
-            console.error('Format d\'email incorrect',error)
-            alert('Le format d\'email est incorrect')
+          if (error.response.status === 409){
+            if (!this.email || !this.password || !this.username){
+              console.error('Vous devez remplir tous les champs', error);
+              alert('Vous devez remplir tous les champs du formulaire');
+            }
+            if (this.email && this.username && this.password){
+              if (!this.v$.email && !this.v$.username){
+                console.error('Email ou nom d\'utilisateur déjà pris',error) 
+                alert('Email ou nom d\'utilisateur déjà pris')
+              }
+            }
           }
           // console.error('Erreur lors de l\'inscription', error);
         }
@@ -129,7 +132,7 @@ import {useVuelidate} from '@vuelidate/core'
 
 /* Style du bouton de connexion */
 .btn-signup {
-  background-color: #007BFF;
+  background-color: #42b983;
   color: #fff;
   border: none;
   padding: 10px 15px;
@@ -139,7 +142,7 @@ import {useVuelidate} from '@vuelidate/core'
 
 /* Style au survol du bouton */
 .btn-signup:hover {
-  background-color: #0056b3;
+  background-color: #339468;
 }
 
 /* Style pour centrer le bouton */

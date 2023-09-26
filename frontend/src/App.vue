@@ -1,8 +1,6 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> |
-    <router-link to="/login">S'identifier</router-link>
+    <router-link to="/">ToDoList</router-link> 
   </nav>
   <router-view/>
 </template>
